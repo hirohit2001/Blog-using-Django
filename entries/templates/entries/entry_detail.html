@@ -1,0 +1,23 @@
+{% extends "entries/base.html" %}
+
+{% block content %}
+<!-- Blog Entries Column -->
+<div class="col-md-8">
+
+    <a href="{% url 'entries:blog-home' %}">Back to home</a>
+
+    <!-- Blog Post -->
+    <div class="card mb-4 mt-4">
+        <div class="card-body">
+            <h3 class="card-title">{{ entry.entry_title }}</h3>
+            <p class="card-text">{{ entry.entry_text | linebreaks }}</p>
+            <a href="#" class="btn btn-primary btn-sm">Read More &rarr;</a>
+        </div>
+        <div class="card-footer text-muted">
+            Posted on {{ entry.entry_date }} by
+            <span class="text-info mr-2">{{ entry.entry_author | capfirst }}</span>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
